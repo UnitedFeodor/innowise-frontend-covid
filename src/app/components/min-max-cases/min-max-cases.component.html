@@ -1,4 +1,67 @@
-<div class="container mx-auto pt-5 text-center">
+<div class="grid w-screen place-items-center">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" (ngSubmit)="submit()" [formGroup]="minMaxCasesForm">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="country">Country</label>
+            <select formControlName="country" id="country"
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"    
+            >
+                <option optionLabel="slug"  *ngFor="let country of countryList" [ngValue]="country.slug">{{country.slug}}</option>
+            </select>
+        </div>
 
-<p>min-max-cases works!</p>
+        <div class="flex items-center justify-between">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">From</label>
+                <input  formControlName="from" id="from" max="2023-03-09" min="2020-03-01" 
+                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    type="date" />
+            </div>
+            <div class="ml-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2">To</label>
+                <input formControlName="to" id="to" max="2023-03-09" min="2020-03-01" 
+                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    type="date" />
+            </div>
+        </div>
+
+        <div class="mt-4 flex flex-col items-center" >
+            <button 
+                
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                type="submit">
+                Show min and max daily cases
+            </button>
+        </div>
+    </form>
+
+    <div *ngIf="minMaxCases != null" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="block text-gray-700 text-sm font-bold mb-2">
+        Case data per day for {{minMaxCases.country}}
+    </div>
+    <div class="flex items-center justify-between">
+        <div>
+            Min case amount: {{minMaxCases.minCases}} 
+        </div>
+        <div class="ml-5 block text-gray-700 text-sm font-bold font">
+            {{minMaxCases.minCasesDate | date: 'dd.MM.yyyy'}}
+        </div>
+
+    </div>
+    <div class="flex items-center justify-between">
+        <div>
+            Max case amount: {{minMaxCases.maxCases}}
+        </div>
+        <div class="ml-5 block text-gray-700 text-sm font-bold">
+            {{minMaxCases.maxCasesDate | date: 'dd.MM.yyyy'}}
+        </div>
+    </div>
+    <!-- <div class="d-flex justify-content-between">
+        <p class="card-text">Minimal cases: {{minMaxCases.minCases}}</p>
+        <p class="card-text fw-light">{{minMaxCases.minCasesDate | date: 'dd.MM.yyyy'}}</p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <p class="card-text">Maximum cases: {{minMaxCases.maxCases}}</p>
+        <p class="card-text fw-light">{{minMaxCases.maxCasesDate | date: 'dd.MM.yyyy'}}</p>
+    </div> -->
 </div>
+
