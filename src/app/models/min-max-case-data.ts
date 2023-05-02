@@ -1,39 +1,39 @@
 export class MinMaxCaseData {
-    private readonly _country: string
+  private readonly _country: string
 
-    private readonly _minCases: number
-    private readonly _maxCases: number
+  private readonly _minCases: number
+  private readonly _maxCases: number
 
-    private readonly _minCasesDate: Date
-    private readonly _maxCasesDate: Date
+  private readonly _minCasesDate: Date
+  private readonly _maxCasesDate: Date
 
-    constructor(country: string, minCases: number, minCasesDate: Date, maxCases: number, maxCasesDate: Date) {
-        this._country = country;
-        
-        this._minCases = minCases;
-        this._maxCases = maxCases;
+  constructor(country: string, minCases: number, minCasesDate: Date, maxCases: number, maxCasesDate: Date) {
+    this._country = country;
 
-        this._minCasesDate = minCasesDate;
-        this._maxCasesDate = maxCasesDate;
-    }
+    this._minCases = minCases;
+    this._maxCases = maxCases;
 
-    get country(): string {
-        return this._country;
-    }
+    this._minCasesDate = minCasesDate;
+    this._maxCasesDate = maxCasesDate;
+  }
 
-    get minCases(): number {
-        return this._minCases;
-    }
+  get country(): string {
+    return this._country;
+  }
 
-    get minCasesDate(): Date {
-        return this._minCasesDate;
-    }
+  get minCases(): number {
+    return this._minCases;
+  }
 
-    get maxCases(): number {
-        return this._maxCases;
-    }
+  get minCasesDate(): Date {
+    return this._minCasesDate;
+  }
 
-    get maxCasesDate(): Date {
-        return this._maxCasesDate;
-    }
+  get maxCases(): number {
+    return this._maxCases;
+  }
+
+  get maxCasesDate(): Date {
+    return this._maxCasesDate;
+  }
 }

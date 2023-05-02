@@ -14,7 +14,6 @@ export class MinMaxCasesComponent implements OnInit {
     minMaxCases: MinMaxCaseData;
     countryList: Country[];
     
-
     constructor(
       private formBuilder: FormBuilder,
       private minMaxCasesService: MinMaxCasesService) {
